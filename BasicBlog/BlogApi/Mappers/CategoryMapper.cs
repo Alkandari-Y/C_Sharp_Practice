@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BlogApi.Dtos.Category;
+using BlogApi.Dtos.CategoryDtos;
 using BlogApi.Models;
 
 namespace BlogApi.Mappers
@@ -25,7 +25,7 @@ namespace BlogApi.Mappers
                 Name = category.Name
             };
         }
-        
+
         public static Category UpdateCategoryDtoToModel(this UpdateCategoryDto category)
         {
             return new()

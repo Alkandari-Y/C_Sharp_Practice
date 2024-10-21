@@ -23,7 +23,7 @@ namespace BlogApi.Repositories
         {
             await _context.Blogs.AddAsync(blog);
             await _context.SaveChangesAsync();
-            
+
             return blog;
         }
 
@@ -32,11 +32,20 @@ namespace BlogApi.Repositories
             return await _context.Blogs.ToListAsync();
         }
 
-        public async Task<Blog?> GetBlogById(int Id)
+        public async Task<Blog?> GetBlogById(int id)
         {
-            Blog? blog = await _context.Blogs.FindAsync(Id);
+            Blog? blog = await _context.Blogs.FindAsync(id);
 
             return blog ?? null;
         }
+
+        public async Task<Blog?> GetBlogBySlug(string slug)
+        {
+            Blog? blog = await _context.Blogs.FirstOrDefaultAsync(b => b.Slug == slug);
+
+            return blog ?? null;
+        }
+
+
     }
 }

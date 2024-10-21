@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogApi.Data;
-using BlogApi.Dtos.Category;
+using BlogApi.Dtos.CategoryDtos;
 using BlogApi.Interfaces;
 using BlogApi.Models;
 using Microsoft.EntityFrameworkCore;

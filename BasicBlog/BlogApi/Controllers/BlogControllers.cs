@@ -57,6 +57,16 @@ namespace BlogApi.Controllers
             return Ok(blog.ModelToSummaryDto());
         }
 
+        [HttpGet]
+        [Route("{blogSlug}")]
+        public async Task<IActionResult> GetBlogDetailsBySlug([FromRoute] string blogSlug)
+        {
+            Blog? blog = await _blogRepo.GetBlogBySlug(blogSlug);
 
+            if (blog is null) return NotFound();
+
+
+            return Ok();
+        }
     }
 }

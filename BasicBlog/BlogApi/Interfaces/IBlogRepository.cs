@@ -10,6 +10,7 @@ namespace BlogApi.Interfaces
     {
         Task<List<Blog>> GetAllBlogsAsync();
         Task<Blog> CreateBlogAsync(Blog blog);
-        Task<Blog?> GetBlogById(int Id);
+        Task<Blog?> GetBlogById(int id);
+        Task<Blog?> GetBlogBySlug(string slug);
     }
 }
