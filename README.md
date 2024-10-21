@@ -60,6 +60,8 @@ dotnet new  <template_name>
 
 ```bash
 dotnet new webapi -o <dir_name>
+# or
+dotnet new blazorwasm -o <dir_name>
 ```
 
 - Build the project
