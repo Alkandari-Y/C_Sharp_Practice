@@ -17,5 +17,21 @@ namespace BlogApi.Mappers
                 Name = category.Name
             };
         }
+
+        public static Category CreateCategoryDtoToModel(this CreateCategoryDto category)
+        {
+            return new()
+            {
+                Name = category.Name
+            };
+        }
+        
+        public static Category UpdateCategoryDtoToModel(this UpdateCategoryDto category)
+        {
+            return new()
+            {
+                Name = category.Name
+            };
+        }
     }
 }

@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BlogApi.Inferfaces;
+using BlogApi.Dtos.Category;
+using BlogApi.Interfaces;
 using BlogApi.Mappers;
+using BlogApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogApi.Controllers
@@ -29,6 +31,38 @@ namespace BlogApi.Controllers
                     category => category.ModelToDto()
                 )
             );
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryDto categoryDto)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var category = await _categoryRepo
+                    .CreateCategoryAsync(
+                        categoryDto.CreateCategoryDtoToModel()
+            );
+
+            return Ok(category.ModelToDto());
+        }
+
+
+        [HttpPut]
+        [Route("{catId:int}")]
+        public async Task<IActionResult> UpdateCategory(
+            [FromRoute] int catId, 
+            [FromBody] UpdateCategoryDto categoryDto
+        )
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            // var category = await _categoryRepo.GetCategoryById(catId);
+            Category? category = await _categoryRepo.UpdateCategoryAsync(
+                        catId, categoryDto);
+
+            if (category == null) return NotFound("Category Not Found");
+
+            return Ok(category.ModelToDto());
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BasicBlog.Repositories;
 using BlogApi.Data;
-using BlogApi.Inferfaces;
+using BlogApi.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogApi.Config
