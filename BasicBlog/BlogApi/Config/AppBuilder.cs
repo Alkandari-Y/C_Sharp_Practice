@@ -18,6 +18,7 @@ namespace BlogApi.Config
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            // builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             
             
             builder.Services.AddCors(options =>

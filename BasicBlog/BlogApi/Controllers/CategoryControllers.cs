@@ -56,7 +56,6 @@ namespace BlogApi.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            // var category = await _categoryRepo.GetCategoryById(catId);
             Category? category = await _categoryRepo.UpdateCategoryAsync(
                         catId, categoryDto);
 
