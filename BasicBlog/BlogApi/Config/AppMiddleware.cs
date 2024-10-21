@@ -18,6 +18,7 @@ namespace BlogApi.Config
 
             app.UseCors("AllowAllOrigins");
             // app.UseHttpsRedirection();
+            app.MapControllers();
 
             await app.MigrateAsync();
 

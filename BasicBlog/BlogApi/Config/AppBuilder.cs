@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BasicBlog.Repositories;
 using BlogApi.Data;
+using BlogApi.Inferfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogApi.Config
@@ -11,9 +13,13 @@ namespace BlogApi.Config
     {
         public static void BuildAll(this WebApplicationBuilder builder)
         {
+            builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            
+            
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAllOrigins", policy =>
@@ -30,6 +36,8 @@ namespace BlogApi.Config
                     .GetConnectionString("DefaultConnection")
                 )
             );
+
+            
         }
     }
 }
