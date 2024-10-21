@@ -1,0 +1,396 @@
+{
+	"info": {
+		"_postman_id": "1276f59e-cac3-4fa9-a586-c3d2b127f811",
+		"name": "StockProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13380578"
+	},
+	"item": [
+		{
+			"name": "Stocks",
+			"item": [
+				{
+					"name": "Stocks List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stock?companyName=&symbol=&PageNumber=4&PageSize=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stock"
+							],
+							"query": [
+								{
+									"key": "companyName",
+									"value": ""
+								},
+								{
+									"key": "symbol",
+									"value": ""
+								},
+								{
+									"key": "sortby",
+									"value": "symbol",
+									"disabled": true
+								},
+								{
+									"key": "IsDescending",
+									"value": "false",
+									"disabled": true
+								},
+								{
+									"key": "PageNumber",
+									"value": "4"
+								},
+								{
+									"key": "PageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Stock",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"symbol\": \"NDL\",\r\n  \"companyName\": \"Noodle 27\",\r\n  \"purchase\": 123,\r\n  \"lastDiv\": 0.0111,\r\n  \"industry\": \"Food\",\r\n  \"marketCap\": 20000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stock",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Stock",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"symbol\": \"KOC\",\r\n  \"companyName\": \"Kuwait Oil Company\",\r\n  \"purchase\": 123,\r\n  \"lastDiv\": 100,\r\n  \"industry\": \"Energy\",\r\n  \"marketCap\": 2000000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stock/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stock",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stock By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stock/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stock",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Stock By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stock/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stock",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Comment List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comment By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"This is a test 2\",\r\n    \"content\": \"I dont want to drag this any longer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/comment?stockId=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment"
+							],
+							"query": [
+								{
+									"key": "stockId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"wallStreetWolf2\",\r\n    \"email\": \"wallStreetWolf@gmail.com\",\r\n    \"password\": \"American_psycho-2000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/account/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"account",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"wallStreetWolf2\",\r\n    \"password\": \"American_psycho-2000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/account/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Porfolio",
+			"item": [
+				{
+					"name": "Get Porfolio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvdXNlZkBnbWFpbC5jb20iLCJnaXZlbl9uYW1lIjoieW91c2VmIiwibmJmIjoxNzI5MzU5NDg2LCJleHAiOjE3Mjk5NjQyODYsImlhdCI6MTcyOTM1OTQ4NiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjQ3IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MjQ3In0.uc0o-pZ0PUX98MvDJ5BoM2Hgrj_U9B2J77Ksy9hTuVs5B-9OxcrhtK0axJMEr0UsEIKmelB-M6Z8_Qzp_VhA6w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/portfolio",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"portfolio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Portfolio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvdXNlZkBnbWFpbC5jb20iLCJnaXZlbl9uYW1lIjoieW91c2VmIiwibmJmIjoxNzI5MzU5NDg2LCJleHAiOjE3Mjk5NjQyODYsImlhdCI6MTcyOTM1OTQ4NiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjQ3IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MjQ3In0.uc0o-pZ0PUX98MvDJ5BoM2Hgrj_U9B2J77Ksy9hTuVs5B-9OxcrhtK0axJMEr0UsEIKmelB-M6Z8_Qzp_VhA6w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/portfolio?symbol=koc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"portfolio"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "koc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Portfolio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InlvdXNlZkBnbWFpbC5jb20iLCJnaXZlbl9uYW1lIjoieW91c2VmIiwibmJmIjoxNzI5MzU5NDg2LCJleHAiOjE3Mjk5NjQyODYsImlhdCI6MTcyOTM1OTQ4NiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MjQ3IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MjQ3In0.uc0o-pZ0PUX98MvDJ5BoM2Hgrj_U9B2J77Ksy9hTuVs5B-9OxcrhtK0axJMEr0UsEIKmelB-M6Z8_Qzp_VhA6w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/portfolio?symbol=NDAL",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"portfolio"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "NDAL"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
