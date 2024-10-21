@@ -57,6 +57,19 @@ namespace BlogApi.Controllers
             return Ok(blog.ModelToSummaryDto());
         }
 
+
+        [HttpGet]
+        [Route("{blogId:int}")]
+        public async Task<IActionResult> GetBlogDetailsBySlug([FromRoute] int blogId)
+        {
+            Blog? blog = await _blogRepo.GetBlogById(blogId);
+
+            if (blog is null) return NotFound();
+
+
+            return Ok(blog.ModelToSummaryDto());
+        }
+
         [HttpGet]
         [Route("{blogSlug}")]
         public async Task<IActionResult> GetBlogDetailsBySlug([FromRoute] string blogSlug)
@@ -66,7 +79,7 @@ namespace BlogApi.Controllers
             if (blog is null) return NotFound();
 
 
-            return Ok();
+            return Ok(blog.ModelToSummaryDto());
         }
     }
 }
