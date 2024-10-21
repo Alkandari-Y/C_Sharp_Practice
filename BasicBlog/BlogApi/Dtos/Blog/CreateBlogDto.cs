@@ -12,20 +12,18 @@ namespace BlogApi.Dtos.Blog
         
         [Required]
         [MaxLength(50)]
-        public string Title { get; set; }
+        public required string Title { get; set; }
         [Required]
         [MaxLength(250)]
-        public string Description { get; set; }
+        public required string Description { get; set; }
         [Required]
         [MinLength(250)]
-        public string Content { get; set; }
-        public string XLThumbNail { get; set; }
+        public required string Content { get; set; }
+        public required string XLThumbNail { get; set; }
         [Required]
-        public string LThumbNail { get; set; }
+        public required string LThumbNail { get; set; }
         [Required]
-        public string MThumbNail { get; set; }
-        [Required]
-        public string Slug { get; set; }
+        public required string MThumbNail { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
@@ -34,8 +32,7 @@ namespace BlogApi.Dtos.Blog
 
         [Required]
         public BlogEnum Status { get; set; }
-
-        [MaxLength(1)]
+        
         public List<int> CategoryIds { get; set;  } = new List<int>();
     }
 }

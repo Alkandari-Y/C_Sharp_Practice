@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BasicBlog.Repositories;
 using BlogApi.Data;
 using BlogApi.Interfaces;
+using BlogApi.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogApi.Config
@@ -18,8 +18,8 @@ namespace BlogApi.Config
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-            // builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-            
+            builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+            builder.Services.AddScoped<IBlogCategoryRepository, BlogCategoryRepository>();
             
             builder.Services.AddCors(options =>
             {
@@ -37,8 +37,6 @@ namespace BlogApi.Config
                     .GetConnectionString("DefaultConnection")
                 )
             );
-
-            
         }
     }
 }

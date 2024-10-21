@@ -6,7 +6,7 @@ using BlogApi.Models;
 
 namespace BlogApi.Dtos.Blog
 {
-    public class BlogDto
+    public class BlogDetailDto
     {
         public int Id { get; set; }
         public required string Title { get; set; }
@@ -24,6 +24,6 @@ namespace BlogApi.Dtos.Blog
 
         public BlogEnum Status { get; set; }
 
-        public List<BlogCategory> BlogCategories { get; set;  } = new List<BlogCategory>();
+        public List<BlogCategory> BlogCategories { get; set; } = new List<BlogCategory>();
     }
 }

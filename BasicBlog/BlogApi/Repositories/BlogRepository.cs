@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BlogApi.Data;
 using BlogApi.Interfaces;
 using BlogApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogApi.Repositories
 {
@@ -18,19 +19,24 @@ namespace BlogApi.Repositories
             _context = context;            
         }
 
-        public Task<Blog> CreateBlogAsync(Blog blog)
+        public async Task<Blog> CreateBlogAsync(Blog blog)
         {
-            throw new NotImplementedException();
+            await _context.Blogs.AddAsync(blog);
+            await _context.SaveChangesAsync();
+            
+            return blog;
         }
 
-        public Task<List<Blog>> GetAllBlogsAsync()
+        public async Task<List<Blog>> GetAllBlogsAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Blogs.ToListAsync();
         }
 
-        public Task<Blog?> GetBlogById(int Id)
+        public async Task<Blog?> GetBlogById(int Id)
         {
-            throw new NotImplementedException();
+            Blog? blog = await _context.Blogs.FindAsync(Id);
+
+            return blog ?? null;
         }
     }
 }

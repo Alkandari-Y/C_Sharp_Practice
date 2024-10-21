@@ -9,7 +9,22 @@ namespace BlogApi.Mappers
 {
     public static class BlogMappers
     {
-        public static BlogDto ModelToDto(this Blog blog)
+        public static BlogSummaryDto ModelToSummaryDto(this Blog blog)
+        {
+            return new()
+            {
+                Id = blog.Id,
+                Title = blog.Title,
+                Description = blog.Description,
+                XLThumbNail = blog.XLThumbNail,
+                LThumbNail = blog.LThumbNail,
+                MThumbNail = blog.MThumbNail,
+                Slug = blog.Slug,
+                CreatedAt = blog.CreatedAt,
+            };
+        }
+
+        public static BlogDetailDto ModelToDetailDto(this Blog blog)
         {
             return new()
             {
@@ -40,7 +55,6 @@ namespace BlogApi.Mappers
                 XLThumbNail = blog.XLThumbNail,
                 LThumbNail = blog.LThumbNail,
                 MThumbNail = blog.MThumbNail,
-                Slug = blog.Slug,
                 CreatedAt = blog.CreatedAt,
                 UpdatedAt = blog.UpdatedAt,
                 PublishedAt = blog.PublishedAt,

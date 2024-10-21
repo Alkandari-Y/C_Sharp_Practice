@@ -15,8 +15,8 @@ namespace BlogApi.Models
          [ForeignKey("Category")]
         public int CategoryId { get; set; }
 
-        public required Blog Blog { get; set; }
-        public required Category Category { get; set; }
+        public Blog? Blog { get; set; }
+        public Category? Category { get; set; }
 
     }
 }

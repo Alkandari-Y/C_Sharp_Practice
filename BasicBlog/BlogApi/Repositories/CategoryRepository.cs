@@ -9,7 +9,7 @@ using BlogApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace BasicBlog.Repositories
+namespace BlogApi.Repositories
 {
     public class CategoryRepository : ICategoryRepository
     {
